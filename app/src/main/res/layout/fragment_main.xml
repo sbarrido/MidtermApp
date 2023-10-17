@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".MainFragment">
-
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sbarrido.midtermapp.MainFragment"/>
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,6 +23,7 @@
             android:textSize="40dp"
             android:text="@string/welcomeGame" />
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/playButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="10dp"
@@ -27,6 +31,7 @@
             android:text="@string/play"
             android:textSize="30dp"/>
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/viewHS"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="10dp"
@@ -34,6 +39,7 @@
             android:text="@string/viewHS"
             android:textSize="30dp"/>
     </LinearLayout>
+</layout>
 
 
-</FrameLayout>
+

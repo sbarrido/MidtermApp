@@ -16,6 +16,7 @@
         app:navGraph="@navigation/nav_graph"
         tools:context=".MainActivity"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"></androidx.fragment.app.FragmentContainerView>
+        tools:layout_editor_absoluteY="0dp">
+    </androidx.fragment.app.FragmentContainerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
