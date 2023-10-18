@@ -37,6 +37,13 @@ class GameViewModel(val dao: ScoreDAO) : ViewModel() {
         }
     }
     fun isWon() = currGuess == target
+    fun wonMessage(): String {
+        var message = ""
+        message += playerName + " score: " + currGuess
+        message += "Play Another Game?"
+
+        return message
+    }
     fun increment() {
         currGuess += 1
     }

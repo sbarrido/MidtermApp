@@ -34,6 +34,7 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        val result = MainFragmentArgs.fromBundle(requireArguments())
         binding.playButton.setOnClickListener {
             view.findNavController()
                 .navigate(R.id.action_mainFragment_to_gameFragment)

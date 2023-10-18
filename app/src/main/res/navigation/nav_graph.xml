@@ -10,6 +10,10 @@
         android:name="com.sbarrido.midtermapp.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
+        <argument
+            android:name="result"
+            app:argType="string"
+            android:defaultValue="Welcome to the Game"/>
         <action
             android:id="@+id/action_mainFragment_to_gameFragment"
             app:destination="@id/gameFragment" />

@@ -54,7 +54,7 @@ class GameFragment : Fragment() {
             binding.attemptsTV.setText("Number of Attempts: " + viewModel.numGuess)
             if(viewModel.isWon()) {
                 val action = GameFragmentDirections
-                    .actionGameFragmentToMainFragment()
+                    .actionGameFragmentToMainFragment(viewModel.wonMessage())
                 view.findNavController().navigate(action)
             }
         }
