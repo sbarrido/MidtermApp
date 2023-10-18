@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.sbarrido.midtermapp.databinding.FragmentGameBinding
 import com.sbarrido.midtermapp.GameViewModel
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +27,6 @@ class GameFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
-    lateinit var viewModel : GameViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +39,12 @@ class GameFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         val view = binding.root
-        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
-        updateScreen()
+        val application = requireNotNull(this.activity).application
+        val dao = HighScoreDB.getInstance(application).scoreDao
+        val viewModelFactory = GameViewModelFactory(dao)
+        val viewModel = ViewModelProvider(this, viewModelFactory).get(GameViewModel::class.java)
+        binding.gameModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         binding.okButton.setOnClickListener {
             val response = viewModel.makeGuess(binding.guessText.text.toString().toInt())
@@ -46,6 +52,11 @@ class GameFragment : Fragment() {
             toast.show()
 
             binding.attemptsTV.setText("Number of Attempts: " + viewModel.numGuess)
+            if(viewModel.isWon()) {
+                val action = GameFragmentDirections
+                    .actionGameFragmentToMainFragment()
+                view.findNavController().navigate(action)
+            }
         }
 
         binding.minusButton.setOnClickListener {
@@ -62,9 +73,6 @@ class GameFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-    fun updateScreen() {
-        binding.attemptsTV.text = "Number of Attempts: " + viewModel.numGuess.toString()
     }
     companion object {
         /**

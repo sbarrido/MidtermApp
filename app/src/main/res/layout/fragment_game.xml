@@ -6,7 +6,7 @@
     <data>
         <variable
             name="gameModel"
-            type="com.sbarrido.midtermapp.GameFragment"/>
+            type="com.sbarrido.midtermapp.GameViewModel"/>
     </data>
     <LinearLayout
         android:layout_width="match_parent"
