@@ -21,7 +21,7 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented user stories:
 
-![](c323_proj1DEMO.gif).
+![](midterm.gif).
 
 ## Notes
 
