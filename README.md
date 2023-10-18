@@ -21,7 +21,7 @@ The following **required** functionality is completed:
 
 Here's a walkthrough of implemented user stories:
 
-![](midterm.gif).
+![](https://github.com/sbarrido/MidtermApp/blob/main/midterm.gif).
 
 ## Notes
 
